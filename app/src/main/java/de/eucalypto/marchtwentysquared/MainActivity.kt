@@ -19,5 +19,10 @@ class MainActivity : AppCompatActivity() {
             counterView.text = counter.toString()
         }
 
+        resetButton.setOnClickListener {
+            counter = 0
+            counterView.text = counter.toString()
+        }
+
     }
 }
