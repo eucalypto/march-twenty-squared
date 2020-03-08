@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">March Twenty Squared</string>
+    <string name="incrementButtonText">+</string>
 </resources>
