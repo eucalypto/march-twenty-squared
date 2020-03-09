@@ -2,4 +2,6 @@
     <string name="app_name">March Twenty Squared</string>
     <string name="incrementButtonText">+</string>
     <string name="resetButtonText">Reset</string>
+    <string name="text_button_from_list_to_counting">go to counting</string>
+    <string name="text_button_go_from_count_to_list">Go to list</string>
 </resources>
