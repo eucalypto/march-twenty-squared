@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_list.*
 
 /**
@@ -27,6 +28,17 @@ class ListFragment : Fragment() {
         button_go_from_list_to_count.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_countFragment)
         }
+
+        list_recycler_view.apply {
+            setHasFixedSize(true)
+
+
+            layoutManager = LinearLayoutManager(this.context)
+
+//            adapter = MyAdapter()
+
+        }
+
     }
 
 }
