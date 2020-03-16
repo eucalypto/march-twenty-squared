@@ -7,29 +7,29 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_list.*
+import kotlinx.android.synthetic.main.fragment_expert_list.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class ListFragment : Fragment() {
+class ExpertListFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false)
+        return inflater.inflate(R.layout.fragment_expert_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        button_go_from_list_to_count.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_countFragment)
+        button_go_from_expert_list_to_count.setOnClickListener {
+            findNavController().navigate(R.id.action_expertListFragment_to_countFragment)
         }
 
-        list_recycler_view.apply {
+        expert_list_recycler_view.apply {
             setHasFixedSize(true)
 
 

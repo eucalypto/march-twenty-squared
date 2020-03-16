@@ -40,7 +40,7 @@ class CountFragment : Fragment() {
         }
 
         button_go_from_count_to_list.setOnClickListener {
-            findNavController().navigate(R.id.action_countFragment_to_listFragment)
+            findNavController().navigate(R.id.action_countFragment_to_expertListFragment)
         }
 
     }

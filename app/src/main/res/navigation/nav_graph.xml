@@ -9,16 +9,16 @@
         android:name="de.eucalypto.marchtwentysquared.CountFragment"
         android:label="CountFragment">
         <action
-            android:id="@+id/action_countFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            android:id="@+id/action_countFragment_to_expertListFragment"
+            app:destination="@id/expertListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/listFragment"
-        android:name="de.eucalypto.marchtwentysquared.ListFragment"
+        android:id="@+id/expertListFragment"
+        android:name="de.eucalypto.marchtwentysquared.ExpertListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list">
+        tools:layout="@layout/fragment_expert_list">
         <action
-            android:id="@+id/action_listFragment_to_countFragment"
+            android:id="@+id/action_expertListFragment_to_countFragment"
             app:destination="@id/countFragment" />
     </fragment>
 </navigation>
