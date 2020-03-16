@@ -7,7 +7,8 @@
     <fragment
         android:id="@+id/countFragment"
         android:name="de.eucalypto.marchtwentysquared.CountFragment"
-        android:label="CountFragment">
+        android:label="CountFragment"
+        tools:layout="@layout/fragment_count">
         <action
             android:id="@+id/action_countFragment_to_expertListFragment"
             app:destination="@id/expertListFragment" />

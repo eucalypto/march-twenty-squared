@@ -31,12 +31,22 @@ class ExpertListFragment : Fragment() {
 
         expert_list_recycler_view.apply {
             setHasFixedSize(true)
-
-
             layoutManager = LinearLayoutManager(this.context)
-
-//            adapter = MyAdapter()
-
+            val dummyExpertList = mutableListOf(
+                Expert("John", "Doe", "john.doe@test.com", "123"),
+                Expert("Boaty", "McBoatface", "mcboatface@est.com", "124")
+            )
+            for (i in 1..100) {
+                dummyExpertList.add(
+                    Expert(
+                        "Boaty$i",
+                        "McBoatface$i",
+                        "mcboatface$i@test.com",
+                        "12$i"
+                    )
+                )
+            }
+            adapter = ExpertAdapter(dummyExpertList)
         }
 
     }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/expertFirstNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Boaty" />
+
+    <TextView
+        android:id="@+id/expertLastNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/expertEmailTextView"
+        app:layout_constraintStart_toEndOf="@+id/expertFirstNameTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="McBoatface" />
+
+    <TextView
+        android:id="@+id/expertEmailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/expertPhoneTextView"
+        app:layout_constraintStart_toEndOf="@+id/expertLastNameTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="boaty@test.com" />
+
+    <TextView
+        android:id="@+id/expertPhoneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/expertEmailTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="0123456789" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
