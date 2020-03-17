@@ -5,42 +5,72 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ImageView
+        android:id="@+id/expertImageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/avatar01"
+        android:contentDescription="@string/expert_image_content_description" />
+
     <TextView
         android:id="@+id/expertFirstNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/expertImageView"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:textSize="@dimen/expert_view_name_text_size"
+        android:textStyle="bold"
         tools:text="Boaty" />
 
     <TextView
         android:id="@+id/expertLastNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/expertEmailTextView"
+        android:layout_marginStart="10dp"
         app:layout_constraintStart_toEndOf="@+id/expertFirstNameTextView"
         app:layout_constraintTop_toTopOf="parent"
+        android:textSize="@dimen/expert_view_name_text_size"
+        android:textStyle="bold"
         tools:text="McBoatface" />
 
+
     <TextView
-        android:id="@+id/expertEmailTextView"
+        android:id="@+id/phone_number_literal_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@id/expertPhoneTextView"
-        app:layout_constraintStart_toEndOf="@+id/expertLastNameTextView"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="boaty@test.com" />
+        app:layout_constraintTop_toBottomOf="@id/expertFirstNameTextView"
+        app:layout_constraintStart_toStartOf="@id/expertFirstNameTextView"
+        android:text="@string/phone_number_literal" />
 
     <TextView
         android:id="@+id/expertPhoneTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/expertEmailTextView"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="0123456789" />
+        app:layout_constraintStart_toEndOf="@id/phone_number_literal_view"
+        app:layout_constraintTop_toBottomOf="@id/expertFirstNameTextView"
+        android:layout_marginStart="4dp"
+        tools:text="137" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email_literal"
+        app:layout_constraintStart_toStartOf="@id/expertFirstNameTextView"
+        app:layout_constraintTop_toBottomOf="@id/phone_number_literal_view" />
+
+    <TextView
+        android:id="@+id/expertEmailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/expertPhoneTextView"
+        app:layout_constraintTop_toBottomOf="@id/expertPhoneTextView"
+        tools:text="boaty@eucalypto.de" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

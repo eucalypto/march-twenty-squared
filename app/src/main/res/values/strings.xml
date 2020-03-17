@@ -4,4 +4,9 @@
     <string name="resetButtonText">Reset</string>
     <string name="text_button_from_list_to_counting">go to counting</string>
     <string name="text_button_go_from_count_to_list">Go to list</string>
+    <string name="expert_phone_number">Phone number:</string>
+    <string name="mail_literal">Mail:</string>
+    <string name="phone_number_literal">Phone number: </string>
+    <string name="email_literal">Email:</string>
+    <string name="expert_image_content_description">profile picture</string>
 </resources>
