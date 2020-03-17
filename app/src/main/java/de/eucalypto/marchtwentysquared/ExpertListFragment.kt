@@ -32,23 +32,41 @@ class ExpertListFragment : Fragment() {
         expert_list_recycler_view.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this.context)
-            val dummyExpertList = mutableListOf(
-                Expert("John", "Doe", "john.doe@test.com", "123"),
-                Expert("Boaty", "McBoatface", "mcboatface@est.com", "124")
-            )
-            for (i in 1..100) {
-                dummyExpertList.add(
-                    Expert(
-                        "Boaty$i",
-                        "McBoatface$i",
-                        "mcboatface$i@test.com",
-                        "12$i"
-                    )
-                )
-            }
+            val dummyExpertList = getDummyExpertList()
             adapter = ExpertAdapter(dummyExpertList)
         }
 
+    }
+
+    private fun getDummyExpertList(): MutableList<Expert> {
+        val dummyExpertList = mutableListOf(
+            Expert("John", "Doe", "123"),
+            Expert("Boaty", "McBoatface", "124")
+        )
+
+        fun getAvatar(num: Int): Int {
+            return when (num.rem(7)) {
+                1 -> R.drawable.avatar01
+                2 -> R.drawable.avatar02
+                3 -> R.drawable.avatar03
+                4 -> R.drawable.avatar04
+                5 -> R.drawable.avatar05
+                6 -> R.drawable.avatar06
+                else -> R.drawable.avatar07
+            }
+        }
+        for (i in 1..100) {
+            dummyExpertList.add(
+                Expert(
+                    "Boaty$i",
+                    "McBoatface$i",
+                    "12$i",
+                    getAvatar(i)
+                )
+            )
+        }
+
+        return dummyExpertList
     }
 
 }

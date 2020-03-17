@@ -6,21 +6,21 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/expertImageView"
+        android:id="@+id/expertProfileView"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="2dp"
         android:layout_marginStart="2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/avatar01"
-        android:contentDescription="@string/expert_image_content_description" />
+        android:contentDescription="@string/expert_image_content_description"
+        tools:src="@drawable/avatar01" />
 
     <TextView
         android:id="@+id/expertFirstNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/expertImageView"
+        app:layout_constraintStart_toEndOf="@id/expertProfileView"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="10dp"
         android:textSize="@dimen/expert_view_name_text_size"

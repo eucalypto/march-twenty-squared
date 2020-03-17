@@ -16,6 +16,7 @@ class ExpertAdapter(private val expertList: MutableList<Expert>) :
                 expertLastNameTextView.text = expert.lastName
                 expertEmailTextView.text = expert.email
                 expertPhoneTextView.text = expert.phone
+                expertProfileView.setImageResource(expert.profilePicture)
             }
         }
 
