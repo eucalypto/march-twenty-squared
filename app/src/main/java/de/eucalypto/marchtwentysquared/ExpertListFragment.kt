@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_expert_list.*
 
@@ -34,6 +35,14 @@ class ExpertListFragment : Fragment() {
             layoutManager = LinearLayoutManager(this.context)
             val dummyExpertList = getDummyExpertList()
             adapter = ExpertAdapter(dummyExpertList)
+
+            // Adds a line separator between items in RecyclerView
+            addItemDecoration(
+                DividerItemDecoration(
+                    expert_list_recycler_view.context,
+                    (layoutManager as LinearLayoutManager).orientation
+                )
+            )
         }
 
     }
