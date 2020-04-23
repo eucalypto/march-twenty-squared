@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_expert_list.*
@@ -26,9 +25,6 @@ class ExpertListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        button_go_from_expert_list_to_count.setOnClickListener {
-            findNavController().navigate(R.id.action_expertListFragment_to_countFragment)
-        }
 
         expert_list_recycler_view.apply {
             setHasFixedSize(true)

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/expertListFragment"
+        android:icon="@drawable/ic_group_black_24dp"
+        android:title="@string/bottom_nav_title_experts" />
+    <item
+        android:id="@+id/countFragment"
+        android:icon="@drawable/ic_plus_one_black_24dp"
+        android:title="@string/bottom_nav_title_counter" />
+
+</menu>

@@ -36,12 +36,5 @@
         app:layout_constraintStart_toStartOf="@+id/incrementButton"
         app:layout_constraintTop_toBottomOf="@+id/incrementButton" />
 
-    <Button
-        android:id="@+id/button_go_from_count_to_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text_button_go_from_count_to_list"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

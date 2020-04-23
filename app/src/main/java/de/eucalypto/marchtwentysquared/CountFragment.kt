@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_count.*
 
 /**
@@ -37,10 +36,6 @@ class CountFragment : Fragment() {
         resetButton.setOnClickListener {
             counter = 0
             counterView.text = counter.toString()
-        }
-
-        button_go_from_count_to_list.setOnClickListener {
-            findNavController().navigate(R.id.action_countFragment_to_expertListFragment)
         }
 
     }
