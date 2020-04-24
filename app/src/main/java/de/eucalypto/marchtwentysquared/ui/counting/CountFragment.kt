@@ -1,10 +1,11 @@
-package de.eucalypto.marchtwentysquared
+package de.eucalypto.marchtwentysquared.ui.counting
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import de.eucalypto.marchtwentysquared.R
 import kotlinx.android.synthetic.main.fragment_count.*
 
 /**

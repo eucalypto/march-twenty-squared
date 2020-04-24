@@ -6,7 +6,7 @@
     app:startDestination="@id/expertListFragment">
     <fragment
         android:id="@+id/countFragment"
-        android:name="de.eucalypto.marchtwentysquared.CountFragment"
+        android:name="de.eucalypto.marchtwentysquared.ui.counting.CountFragment"
         android:label="CountFragment"
         tools:layout="@layout/fragment_count">
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/expertListFragment"
-        android:name="de.eucalypto.marchtwentysquared.ExpertListFragment"
+        android:name="de.eucalypto.marchtwentysquared.ui.experts.ExpertListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_expert_list">
         <action

@@ -1,4 +1,4 @@
-package de.eucalypto.marchtwentysquared
+package de.eucalypto.marchtwentysquared.ui.experts
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import de.eucalypto.marchtwentysquared.R
+import de.eucalypto.marchtwentysquared.model.Expert
 import kotlinx.android.synthetic.main.fragment_expert_list.*
 
 /**
@@ -30,7 +32,10 @@ class ExpertListFragment : Fragment() {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this.context)
             val dummyExpertList = getDummyExpertList()
-            adapter = ExpertAdapter(dummyExpertList)
+            adapter =
+                ExpertAdapter(
+                    dummyExpertList
+                )
 
             // Adds a line separator between items in RecyclerView
             addItemDecoration(
@@ -46,7 +51,11 @@ class ExpertListFragment : Fragment() {
     private fun getDummyExpertList(): MutableList<Expert> {
         val dummyExpertList = mutableListOf(
             Expert("John", "Doe", "123"),
-            Expert("Boaty", "McBoatface", "124")
+            Expert(
+                "Boaty",
+                "McBoatface",
+                "124"
+            )
         )
 
         fun getAvatar(num: Int): Int {

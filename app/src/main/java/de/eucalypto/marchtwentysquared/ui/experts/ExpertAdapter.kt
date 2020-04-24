@@ -1,9 +1,11 @@
-package de.eucalypto.marchtwentysquared
+package de.eucalypto.marchtwentysquared.ui.experts
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import de.eucalypto.marchtwentysquared.R
+import de.eucalypto.marchtwentysquared.model.Expert
 import kotlinx.android.synthetic.main.item_expert.view.*
 
 class ExpertAdapter(private val expertList: MutableList<Expert>) :
@@ -25,7 +27,9 @@ class ExpertAdapter(private val expertList: MutableList<Expert>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_expert, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(
+            view
+        )
     }
 
     override fun getItemCount(): Int = expertList.size
