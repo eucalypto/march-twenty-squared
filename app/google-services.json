@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "948505370226",
+    "firebase_url": "https://march-twenty-squared.firebaseio.com",
+    "project_id": "march-twenty-squared",
+    "storage_bucket": "march-twenty-squared.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:948505370226:android:4f49d40fdbf5fb5802aceb",
+        "android_client_info": {
+          "package_name": "de.eucalypto.marchtwentysquared"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "948505370226-rolv6khatvu7sff1et82roopb5ikaiq6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU-3twx1prZpSBSznmGhZpKmF_wEVHP60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "948505370226-rolv6khatvu7sff1et82roopb5ikaiq6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
