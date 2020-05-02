@@ -1,12 +1,16 @@
 package de.eucalypto.marchtwentysquared.ui.experts
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.firestore.ListenerRegistration
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import de.eucalypto.marchtwentysquared.R
 import de.eucalypto.marchtwentysquared.model.Expert
 import kotlinx.android.synthetic.main.fragment_expert_list.*
@@ -15,6 +19,9 @@ import kotlinx.android.synthetic.main.fragment_expert_list.*
  * A simple [Fragment] subclass.
  */
 class ExpertListFragment : Fragment() {
+
+    private val expertListRef = Firebase.firestore.collection("experts").orderBy("lastName")
+    lateinit var expertListListenerRegistration: ListenerRegistration
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,15 +34,12 @@ class ExpertListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val expertList: MutableList<Expert> = mutableListOf()
+        setupExpertListListener(expertList)
 
         expert_list_recycler_view.apply {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this.context)
-            val dummyExpertList = getDummyExpertList()
-            adapter =
-                ExpertAdapter(
-                    dummyExpertList
-                )
+            layoutManager = LinearLayoutManager(context)
+            adapter = ExpertAdapter(expertList)
 
             // Adds a line separator between items in RecyclerView
             addItemDecoration(
@@ -48,39 +52,33 @@ class ExpertListFragment : Fragment() {
 
     }
 
-    private fun getDummyExpertList(): MutableList<Expert> {
-        val dummyExpertList = mutableListOf(
-            Expert("John", "Doe", "123"),
-            Expert(
-                "Boaty",
-                "McBoatface",
-                "124"
-            )
-        )
-
-        fun getAvatar(num: Int): Int {
-            return when (num.rem(7)) {
-                1 -> R.drawable.avatar01
-                2 -> R.drawable.avatar02
-                3 -> R.drawable.avatar03
-                4 -> R.drawable.avatar04
-                5 -> R.drawable.avatar05
-                6 -> R.drawable.avatar06
-                else -> R.drawable.avatar07
+    private fun setupExpertListListener(expertList: MutableList<Expert>) {
+        expertListListenerRegistration =
+            expertListRef.addSnapshotListener { expertListSnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.w(tag, "listen:error", firebaseFirestoreException)
+                    return@addSnapshotListener
+                }
+                expertList.clear()
+                expertListSnapshot?.documents?.forEach { expertSnapshot ->
+                    try {
+                        val expert = expertSnapshot.toObject(Expert::class.java) ?: return@forEach
+                        expertList.add(expert)
+                    } catch (e: RuntimeException) {
+                        Log.w(
+                            tag,
+                            "Could not parse document from database into Kotlin object: ${expertSnapshot.data.toString()}",
+                            e
+                        )
+                    }
+                }
+                expert_list_recycler_view.adapter?.notifyDataSetChanged()
             }
-        }
-        for (i in 1..100) {
-            dummyExpertList.add(
-                Expert(
-                    "Boaty$i",
-                    "McBoatface$i",
-                    "12$i",
-                    getAvatar(i)
-                )
-            )
-        }
+    }
 
-        return dummyExpertList
+    override fun onDestroyView() {
+        super.onDestroyView()
+        expertListListenerRegistration.remove()
     }
 
 }
