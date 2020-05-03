@@ -4,6 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import de.eucalypto.marchtwentysquared.R
 import de.eucalypto.marchtwentysquared.model.Expert
 import kotlinx.android.synthetic.main.item_expert.view.*
@@ -18,7 +21,9 @@ class ExpertAdapter(private val expertList: MutableList<Expert>) :
                 expertLastNameTextView.text = expert.lastName
                 expertEmailTextView.text = expert.email
                 expertPhoneTextView.text = expert.phone
-                expertProfileView.setImageResource(expert.profilePicture)
+                Glide.with(view.context)
+                    .load(Firebase.storage.getReference("/" + expert.profilePicture))
+                    .into(view.expertProfileView)
             }
         }
 
