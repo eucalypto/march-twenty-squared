@@ -44,7 +44,7 @@ class ExpertListFragment : Fragment() {
             // Adds a line separator between items in RecyclerView
             addItemDecoration(
                 DividerItemDecoration(
-                    expert_list_recycler_view.context,
+                    context,
                     (layoutManager as LinearLayoutManager).orientation
                 )
             )
