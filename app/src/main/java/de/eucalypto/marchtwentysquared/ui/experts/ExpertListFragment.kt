@@ -15,13 +15,11 @@ import de.eucalypto.marchtwentysquared.R
 import de.eucalypto.marchtwentysquared.model.Expert
 import kotlinx.android.synthetic.main.fragment_expert_list.*
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class ExpertListFragment : Fragment() {
 
     private val expertListRef = Firebase.firestore.collection("experts").orderBy("lastName")
-    lateinit var expertListListenerRegistration: ListenerRegistration
+    private lateinit var expertListListenerRegistration: ListenerRegistration
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,16 +59,8 @@ class ExpertListFragment : Fragment() {
                 }
                 expertList.clear()
                 expertListSnapshot?.documents?.forEach { expertSnapshot ->
-                    try {
-                        val expert = expertSnapshot.toObject(Expert::class.java) ?: return@forEach
-                        expertList.add(expert)
-                    } catch (e: RuntimeException) {
-                        Log.w(
-                            tag,
-                            "Could not parse document from database into Kotlin object: ${expertSnapshot.data.toString()}",
-                            e
-                        )
-                    }
+                    val expert = expertSnapshot.toObject(Expert::class.java) ?: return@forEach
+                    expertList.add(expert)
                 }
                 expert_list_recycler_view.adapter?.notifyDataSetChanged()
             }
