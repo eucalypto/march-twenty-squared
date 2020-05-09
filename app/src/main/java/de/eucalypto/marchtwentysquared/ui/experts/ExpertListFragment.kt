@@ -1,7 +1,6 @@
 package de.eucalypto.marchtwentysquared.ui.experts
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +13,7 @@ import com.google.firebase.ktx.Firebase
 import de.eucalypto.marchtwentysquared.R
 import de.eucalypto.marchtwentysquared.model.Expert
 import kotlinx.android.synthetic.main.fragment_expert_list.*
+import timber.log.Timber
 
 
 class ExpertListFragment : Fragment() {
@@ -54,7 +54,7 @@ class ExpertListFragment : Fragment() {
         expertListListenerRegistration =
             expertListRef.addSnapshotListener { expertListSnapshot, firebaseFirestoreException ->
                 if (firebaseFirestoreException != null) {
-                    Log.w(tag, "listen:error", firebaseFirestoreException)
+                    Timber.w(firebaseFirestoreException, "listen:error")
                     return@addSnapshotListener
                 }
                 expertList.clear()
